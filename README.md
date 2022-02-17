@@ -9,3 +9,4 @@ This is a flutter application that can scan QR codes, generate QR codes.
 ## Packages:
 1. flutter_barcode_scanner: ^2.0.0
 2. barcode_widget: ^2.0.2
+3. font_awesome_flutter: ^9.2.0
