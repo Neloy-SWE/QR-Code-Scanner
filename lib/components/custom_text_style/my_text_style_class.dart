@@ -5,7 +5,7 @@ import 'package:qrcode_scanner/utils/strings.dart';
 
 class MyTextStyle {
   static regularStyle(
-      {double fontSize = 14, Color fontColor = MyColors.primaryColor}) {
+      {double fontSize = 17, Color fontColor = MyColors.primaryColor}) {
     return TextStyle(
       fontFamily: Texts.regularText,
       fontSize: fontSize,
@@ -14,7 +14,7 @@ class MyTextStyle {
   }
 
   static mediumStyle(
-      {double fontSize = 17, Color fontColor = MyColors.primaryColor}) {
+      {double fontSize = 20, Color fontColor = MyColors.primaryColor}) {
     return TextStyle(
       fontFamily: Texts.mediumText,
       fontSize: fontSize,

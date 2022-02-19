@@ -18,7 +18,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Timer(Duration(seconds: 2), (){
+    Timer(const Duration(seconds: 2), (){
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (builder)=> const Options()));
     });
     super.initState();
@@ -40,18 +40,21 @@ class _SplashScreenState extends State<SplashScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+
+
+            // simple icon and text for splash screen
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Icon(
                   FontAwesomeIcons.qrcode,
                   size: 30,
-                  color: MyColors.backColor,
+                  color: MyColors.secondaryColor,
                 ),
                 const SizedBox(width: 10),
                 Text(
                   Texts.qrCodeScanner,
-                  style: MyTextStyle.mediumStyle(fontSize: 25, fontColor: MyColors.backColor),
+                  style: MyTextStyle.mediumStyle(fontSize: 25, fontColor: MyColors.secondaryColor),
                 ),
 
               ],
@@ -59,8 +62,9 @@ class _SplashScreenState extends State<SplashScreen> {
             const SizedBox(height: 50),
 
 
+            // loader
             const CircularProgressIndicator(
-              color: MyColors.backColor,
+              color: MyColors.secondaryColor,
               strokeWidth: 20,
             ),
           ],
