@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:qrcode_scanner/components/custom_app_bar/custom_app_bar_class.dart';
 import 'package:qrcode_scanner/components/custom_divider/custom_divider_class.dart';
 import 'package:qrcode_scanner/components/custom_text_style/my_text_style_class.dart';
@@ -15,6 +17,7 @@ class ScanCode extends StatefulWidget {
 
 class _ScanCodeState extends State<ScanCode> {
   String result = Texts.flutter;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +28,6 @@ class _ScanCodeState extends State<ScanCode> {
         title: Texts.scanCode,
         fontColor: MyColors.primaryColor,
       ),
-
       body: ListView(
         padding: const EdgeInsets.only(
           top: 100,
@@ -33,23 +35,25 @@ class _ScanCodeState extends State<ScanCode> {
           right: 15,
           bottom: 30,
         ),
-
         children: [
-          Text(Texts.scanResult, textAlign: TextAlign.center,  style: MyTextStyle.regularStyle(fontSize: 15),),
+          Text(
+            Texts.scanResult,
+            textAlign: TextAlign.center,
+            style: MyTextStyle.regularStyle(fontSize: 15),
+          ),
           const SizedBox(height: 30),
-          Text(result, textAlign: TextAlign.center,  style: MyTextStyle.mediumStyle(fontSize: 25),),
+          Text(
+            result,
+            textAlign: TextAlign.center,
+            style: MyTextStyle.mediumStyle(fontSize: 25),
+          ),
           const SizedBox(height: 50),
-
           SizedBox(
             height: 50,
             width: MediaQuery.of(context).size.width * 0.85,
             child: MaterialButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (builder) => const ScanCode(),
-                  ),
-                );
+                qrCodeResultMethod();
               },
               color: MyColors.primaryColor,
               elevation: 0,
@@ -63,12 +67,13 @@ class _ScanCodeState extends State<ScanCode> {
               ),
             ),
           ),
-
           const SizedBox(height: 15),
           MyDivider.customDivider(),
           const SizedBox(height: 15),
           InkWell(
-              onTap: () {},
+              onTap: () {
+
+              },
               child: Text(
                 Texts.createCode,
                 textAlign: TextAlign.center,
@@ -77,10 +82,27 @@ class _ScanCodeState extends State<ScanCode> {
                   fontSize: 14,
                 ),
               )),
-
-
         ],
       ),
     );
+  }
+
+  Future<void> qrCodeResultMethod() async {
+  try  {
+      final qrCode = await FlutterBarcodeScanner.scanBarcode(
+        "#ff6666",
+        Texts.exit,
+        true,
+        ScanMode.QR,
+      );
+
+      if (!mounted) return;
+
+      setState(() {
+        result = qrCode;
+      });
+    } on PlatformException{
+    result = "Sorry";
+  }
   }
 }

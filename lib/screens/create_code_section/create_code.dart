@@ -93,6 +93,10 @@ class _CreateCodeState extends State<CreateCode> {
             width: MediaQuery.of(context).size.width * 0.85,
             child: MaterialButton(
               onPressed: () {
+                FocusScopeNode currentFocus = FocusScope.of(context);
+                if (!currentFocus.hasPrimaryFocus) {
+                  currentFocus.unfocus();
+                }
                 setState(() {
                   normalText = createCodeController.text.trim();
                 });
@@ -115,6 +119,10 @@ class _CreateCodeState extends State<CreateCode> {
             width: MediaQuery.of(context).size.width * 0.85,
             child: MaterialButton(
               onPressed: () {
+                FocusScopeNode currentFocus = FocusScope.of(context);
+                if (!currentFocus.hasPrimaryFocus) {
+                  currentFocus.unfocus();
+                }
                 setState(() {
                   createCodeController.clear();
                   normalText = Texts.flutter;
