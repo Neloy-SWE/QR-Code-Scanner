@@ -14,11 +14,11 @@ This is a flutter application that can scan QR codes, generate QR codes.
 ## Screenshots: 
 
 <p float="left">
-  <img src="assets/images/splash.jpg" width="100" />
-  <img src="assets/images/options.jpg" width="100" />
-  <img src="assets/images/scancode.jpg" width="100" />
-  <img src="assets/images/scancode2.jpg" width="100" />
-  <img src="assets/images/result.jpg" width="100" />
-  <img src="assets/images/createcode.jpg" width="100" />
-  <img src="assets/images/created.jpg" width="100" />
+  <img src="assets/screenshots/splash.jpg" width="100" />
+  <img src="assets/screenshots/options.jpg" width="100" />
+  <img src="assets/screenshots/scancode.jpg" width="100" />
+  <img src="assets/screenshots/scancode2.jpg" width="100" />
+  <img src="assets/screenshots/result.jpg" width="100" />
+  <img src="assets/screenshots/createcode.jpg" width="100" />
+  <img src="assets/screenshots/created.jpg" width="100" />
 </p>
