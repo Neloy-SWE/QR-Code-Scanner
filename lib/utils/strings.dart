@@ -10,4 +10,5 @@ class Texts {
   static const String create = "Create";
   static const String flutter = "Flutter";
   static const String clear = "Clear";
+  static const String or = "OR";
 }

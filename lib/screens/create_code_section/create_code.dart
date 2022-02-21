@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:qrcode_scanner/components/custom_app_bar/custom_app_bar_class.dart';
+import 'package:qrcode_scanner/components/custom_divider/custom_divider_class.dart';
 import 'package:qrcode_scanner/components/custom_text_style/my_text_style_class.dart';
 import 'package:qrcode_scanner/utils/colors.dart';
 
@@ -16,7 +17,6 @@ class CreateCode extends StatefulWidget {
 }
 
 class _CreateCodeState extends State<CreateCode> {
-
   String normalText = Texts.flutter;
 
   TextEditingController createCodeController = TextEditingController();
@@ -41,20 +41,18 @@ class _CreateCodeState extends State<CreateCode> {
         padding:
             const EdgeInsets.only(top: 50, left: 15, right: 15, bottom: 30),
         children: [
-          normalText ==  Texts.flutter
+          normalText == Texts.flutter
               ? const Icon(
-            FontAwesomeIcons.qrcode,
-            size: 170,
-            color: MyColors.codeColor,
-          )
+                  FontAwesomeIcons.qrcode,
+                  size: 170,
+                  color: MyColors.codeColor,
+                )
               : BarcodeWidget(
-            barcode: Barcode.qrCode(),
-            data: normalText,
-            color: MyColors.primaryColor,
-          ),
-
+                  barcode: Barcode.qrCode(),
+                  data: normalText,
+                  color: MyColors.primaryColor,
+                ),
           const SizedBox(height: 50),
-
           TextField(
             style: MyTextStyle.mediumStyle(fontSize: 15),
             controller: createCodeController,
@@ -65,12 +63,10 @@ class _CreateCodeState extends State<CreateCode> {
                 fontSize: 13,
                 fontColor: MyColors.hintTextColor,
               ),
-
               labelText: Texts.letsTry,
               labelStyle: MyTextStyle.mediumStyle(
                 fontSize: 10,
               ),
-
               border: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(7)),
                 borderSide: BorderSide(
@@ -78,7 +74,6 @@ class _CreateCodeState extends State<CreateCode> {
                   width: 0.5,
                 ),
               ),
-
               focusedBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(7)),
                 borderSide: BorderSide(
@@ -89,7 +84,6 @@ class _CreateCodeState extends State<CreateCode> {
             ),
           ),
           const SizedBox(height: 20),
-
           SizedBox(
             height: 50,
             width: MediaQuery.of(context).size.width * 0.85,
@@ -117,7 +111,6 @@ class _CreateCodeState extends State<CreateCode> {
             width: MediaQuery.of(context).size.width * 0.85,
             child: MaterialButton(
               onPressed: () {
-
                 setState(() {
                   createCodeController.clear();
                   normalText = Texts.flutter;
@@ -133,11 +126,24 @@ class _CreateCodeState extends State<CreateCode> {
               ),
               child: Text(
                 Texts.clear,
-                style: MyTextStyle.regularStyle(
-                    fontColor: MyColors.primaryColor),
+                style:
+                    MyTextStyle.regularStyle(fontColor: MyColors.primaryColor),
               ),
             ),
           ),
+          const SizedBox(height: 15),
+          MyDivider.customDivider(),
+          const SizedBox(height: 15),
+          InkWell(
+              onTap: () {},
+              child: Text(
+                Texts.scanCode,
+                textAlign: TextAlign.center,
+                style: MyTextStyle.mediumStyle(
+                  fontColor: MyColors.primaryColor,
+                  fontSize: 14,
+                ),
+              )),
         ],
       ),
     );
