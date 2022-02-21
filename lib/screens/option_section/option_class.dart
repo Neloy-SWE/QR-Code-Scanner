@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:qrcode_scanner/components/custom_app_bar/custom_app_bar_class.dart';
 import 'package:qrcode_scanner/screens/create_code_section/create_code.dart';
 import 'package:qrcode_scanner/screens/scan_code_section/scan_code_class.dart';
-
 import '../../components/custom_text_style/my_text_style_class.dart';
 import '../../utils/colors.dart';
 import '../../utils/strings.dart';
@@ -29,6 +27,8 @@ class _OptionsState extends State<Options> {
       body: Center(
         child: Column(
           children: [
+
+            // header icon
             const SizedBox(height: 100),
             const Icon(
               FontAwesomeIcons.qrcode,
@@ -36,6 +36,9 @@ class _OptionsState extends State<Options> {
               color: MyColors.primaryColor,
             ),
             const SizedBox(height: 120),
+
+
+            // scan code button
             SizedBox(
               height: 50,
               width: MediaQuery.of(context).size.width * 0.85,
@@ -60,6 +63,9 @@ class _OptionsState extends State<Options> {
               ),
             ),
             const SizedBox(height: 15),
+
+
+            // create code button
             SizedBox(
               height: 50,
               width: MediaQuery.of(context).size.width * 0.85,

@@ -1,10 +1,10 @@
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:qrcode_scanner/components/custom_app_bar/custom_app_bar_class.dart';
 import 'package:qrcode_scanner/components/custom_divider/custom_divider_class.dart';
 import 'package:qrcode_scanner/components/custom_text_style/my_text_style_class.dart';
+import 'package:qrcode_scanner/screens/scan_code_section/scan_code_class.dart';
 import 'package:qrcode_scanner/utils/colors.dart';
 
 import '../../utils/strings.dart';
@@ -45,6 +45,7 @@ class _CreateCodeState extends State<CreateCode> {
           bottom: 30,
         ),
         children: [
+          // generate qr code section
           normalText == Texts.flutter
               ? const Icon(
                   FontAwesomeIcons.qrcode,
@@ -57,6 +58,8 @@ class _CreateCodeState extends State<CreateCode> {
                   color: MyColors.primaryColor,
                 ),
           const SizedBox(height: 50),
+
+          // text field for set string
           TextField(
             style: MyTextStyle.mediumStyle(fontSize: 15),
             controller: createCodeController,
@@ -88,6 +91,8 @@ class _CreateCodeState extends State<CreateCode> {
             ),
           ),
           const SizedBox(height: 20),
+
+          // create button
           SizedBox(
             height: 50,
             width: MediaQuery.of(context).size.width * 0.85,
@@ -114,6 +119,8 @@ class _CreateCodeState extends State<CreateCode> {
             ),
           ),
           const SizedBox(height: 15),
+
+          // clear button
           SizedBox(
             height: 50,
             width: MediaQuery.of(context).size.width * 0.85,
@@ -143,11 +150,18 @@ class _CreateCodeState extends State<CreateCode> {
               ),
             ),
           ),
+
+          // custom divider
           const SizedBox(height: 15),
           MyDivider.customDivider(),
           const SizedBox(height: 15),
+
+          // go to scan code page
           InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (builder) => const ScanCode()));
+              },
               child: Text(
                 Texts.scanCode,
                 textAlign: TextAlign.center,

@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:qrcode_scanner/components/custom_app_bar/custom_app_bar_class.dart';
 import 'package:qrcode_scanner/components/custom_text_style/my_text_style_class.dart';

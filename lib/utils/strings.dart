@@ -9,7 +9,7 @@ class Texts {
   static const String letsTry = "Let's Try";
   static const String create = "Create";
   static const String flutter = "Flutter";
-  static const String clear = "Clear";
+  static const String clear = "Clear Text";
   static const String or = "OR";
   static const String scanResult = "Scan Result";
   static const String exit = "Exit";

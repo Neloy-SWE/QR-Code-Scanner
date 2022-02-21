@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qrcode_scanner/screens/splash_screen/splash_screen_class.dart';
 
-void main(){
+void main() {
   runApp(const MyApp());
 }
 

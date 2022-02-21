@@ -1,10 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:qrcode_scanner/components/custom_app_bar/custom_app_bar_class.dart';
 import 'package:qrcode_scanner/components/custom_divider/custom_divider_class.dart';
 import 'package:qrcode_scanner/components/custom_text_style/my_text_style_class.dart';
+import 'package:qrcode_scanner/screens/create_code_section/create_code.dart';
 import 'package:qrcode_scanner/utils/colors.dart';
 import 'package:qrcode_scanner/utils/strings.dart';
 
@@ -36,18 +36,23 @@ class _ScanCodeState extends State<ScanCode> {
           bottom: 30,
         ),
         children: [
+          // title text
           Text(
             Texts.scanResult,
             textAlign: TextAlign.center,
             style: MyTextStyle.regularStyle(fontSize: 15),
           ),
           const SizedBox(height: 30),
+
+          // result will appear here
           Text(
             result,
             textAlign: TextAlign.center,
             style: MyTextStyle.mediumStyle(fontSize: 25),
           ),
           const SizedBox(height: 50),
+
+          // scan code button
           SizedBox(
             height: 50,
             width: MediaQuery.of(context).size.width * 0.85,
@@ -67,12 +72,17 @@ class _ScanCodeState extends State<ScanCode> {
               ),
             ),
           ),
+
+          // custom divider
           const SizedBox(height: 15),
           MyDivider.customDivider(),
           const SizedBox(height: 15),
+
+          // go to create code page
           InkWell(
               onTap: () {
-
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (builder) => const CreateCode()));
               },
               child: Text(
                 Texts.createCode,
@@ -87,8 +97,9 @@ class _ScanCodeState extends State<ScanCode> {
     );
   }
 
+  // function for scan code
   Future<void> qrCodeResultMethod() async {
-  try  {
+    try {
       final qrCode = await FlutterBarcodeScanner.scanBarcode(
         "#ff6666",
         Texts.exit,
@@ -101,8 +112,8 @@ class _ScanCodeState extends State<ScanCode> {
       setState(() {
         result = qrCode;
       });
-    } on PlatformException{
-    result = "Sorry";
-  }
+    } on PlatformException {
+      result = "Sorry";
+    }
   }
 }
