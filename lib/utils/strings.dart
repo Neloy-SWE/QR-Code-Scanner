@@ -11,4 +11,5 @@ class Texts {
   static const String flutter = "Flutter";
   static const String clear = "Clear";
   static const String or = "OR";
+  static const String scanResult = "Scan Result";
 }

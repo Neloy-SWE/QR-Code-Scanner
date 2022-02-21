@@ -38,8 +38,12 @@ class _CreateCodeState extends State<CreateCode> {
         fontColor: MyColors.primaryColor,
       ),
       body: ListView(
-        padding:
-            const EdgeInsets.only(top: 50, left: 15, right: 15, bottom: 30),
+        padding: const EdgeInsets.only(
+          top: 50,
+          left: 15,
+          right: 15,
+          bottom: 30,
+        ),
         children: [
           normalText == Texts.flutter
               ? const Icon(
