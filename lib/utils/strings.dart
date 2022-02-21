@@ -5,4 +5,9 @@ class Texts {
   static const String scanCode = "Scan Code";
   static const String createCode = "Create Code";
   static const String welcome = "Welcome";
+  static const String writeSomething = "Write Something.....";
+  static const String letsTry = "Let's Try";
+  static const String create = "Create";
+  static const String flutter = "Flutter";
+  static const String clear = "Clear";
 }
